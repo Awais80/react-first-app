@@ -28,13 +28,12 @@ jobs:
         version: 12
       - name: GitHub Action for Yarn
         uses: Borales/actions-yarn@v2.1.0
-          with:
+        with:
           # Yarn command
           cmd: install
-          - name: Creating Build
-            run: yarn build
-          - name: installing surge
-            run: npm install -g surge
-          - name: deploying on surge
-            run: surge ./build http://near-bead.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
-
+      - name: Creating Build
+        run: yarn build
+      - name: installing surge
+        run: npm install -g surge
+      - name: deploying on surge
+        run: surge ./build http://near-bead.surge.sh/ --token ${{secrets.SURGE_TOKEN}}
